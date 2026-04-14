@@ -6,6 +6,7 @@ type FormBuilderStore = {
   fields: FormField[]
   selectedFieldId: string | null
   addField: (type?: FormFieldType) => void
+  addFieldAt: (type: FormFieldType, index: number) => void
   removeField: (fieldId: string) => void
   selectField: (fieldId: string | null) => void
   updateField: (
@@ -47,6 +48,22 @@ export const useFormBuilderStore = create<FormBuilderStore>()(
           fields: [...state.fields, nextField],
           selectedFieldId: nextField.id,
         }))
+      },
+      addFieldAt: (type, index) => {
+        const nextField = createEmptyField(type)
+
+        set((state) => {
+          const safeIndex = Math.max(0, Math.min(index, state.fields.length))
+
+          return {
+            fields: [
+              ...state.fields.slice(0, safeIndex),
+              nextField,
+              ...state.fields.slice(safeIndex),
+            ],
+            selectedFieldId: nextField.id,
+          }
+        })
       },
       removeField: (fieldId) => {
         set((state) => ({

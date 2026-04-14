@@ -9,7 +9,7 @@ import styles from './FormBuilderPage.module.css'
 
 export function FormBuilderPage() {
   const fields = useFormBuilderStore((state) => state.fields)
-  const addField = useFormBuilderStore((state) => state.addField)
+  const addFieldAt = useFormBuilderStore((state) => state.addFieldAt)
   const removeField = useFormBuilderStore((state) => state.removeField)
   const selectedFieldId = useFormBuilderStore((state) => state.selectedFieldId)
   const selectField = useFormBuilderStore((state) => state.selectField)
@@ -19,7 +19,7 @@ export function FormBuilderPage() {
 
   function handleAddField(type: FormFieldType) {
     startTransition(() => {
-      addField(type)
+      addFieldAt(type, fields.length)
     })
   }
 
@@ -31,7 +31,7 @@ export function FormBuilderPage() {
         <FormCanvas
           fields={fields}
           selectedFieldId={selectedFieldId}
-          onAddField={addField}
+          onAddFieldAt={addFieldAt}
           onSelectField={selectField}
         />
         <FormFieldSettings

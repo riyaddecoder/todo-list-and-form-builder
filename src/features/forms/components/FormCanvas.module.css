@@ -48,6 +48,14 @@
   text-align: center;
 }
 
+.emptyStateActive {
+  composes: emptyState;
+  border-color: rgba(45, 122, 104, 0.5);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.88), transparent 60%),
+    rgba(228, 244, 238, 0.72);
+}
+
 .emptyTitle {
   margin: 0;
   font-size: 1.3rem;
@@ -63,7 +71,39 @@
 
 .fieldStack {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.35rem;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.dropZone,
+.dropZoneActive {
+  display: block;
+  height: 0;
+  opacity: 0;
+  transition:
+    opacity 160ms ease,
+    height 160ms ease,
+    margin 160ms ease,
+    transform 160ms ease;
+}
+
+.dropZoneActive {
+  height: 1.8rem;
+  margin: 0.1rem 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropZoneLine {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(45, 122, 104, 0.9), rgba(45, 122, 104, 0.15));
 }
 
 .fieldCard,
