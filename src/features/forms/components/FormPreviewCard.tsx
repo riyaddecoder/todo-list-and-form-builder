@@ -26,7 +26,7 @@ export function FormPreviewCard({
         </div>
         {submitted ? (
           <p className={styles.successMessage}>
-            Submitted successfully. Check the browser console for payload output.
+            Submitted successfully.
           </p>
         ) : null}
       </div>

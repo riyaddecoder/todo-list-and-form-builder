@@ -28,6 +28,11 @@ export const draggableFieldTypes: Array<{
     value: 'text',
   },
   {
+    description: 'Pick one option from a custom dropdown list.',
+    label: 'Dropdown',
+    value: 'select',
+  },
+  {
     description: 'Multi-line input for longer responses.',
     label: 'Text Area',
     value: 'textarea',

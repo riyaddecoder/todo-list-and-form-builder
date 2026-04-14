@@ -55,6 +55,24 @@
   gap: 0.5rem;
 }
 
+.optionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.optionList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.optionRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+}
+
 .label {
   font-size: 0.9rem;
   font-weight: 600;
@@ -89,6 +107,32 @@
   box-shadow: 0 0 0 4px rgba(45, 122, 104, 0.12);
 }
 
+.addOptionButton,
+.removeOptionButton {
+  min-height: 2.7rem;
+  padding: 0.7rem 0.95rem;
+  border: 0;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.addOptionButton {
+  color: #214239;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(28, 53, 45, 0.08);
+}
+
+.removeOptionButton {
+  color: #8f2d2d;
+  background: rgba(123, 33, 33, 0.1);
+}
+
+.removeOptionButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .previewLink {
   display: inline-flex;
   align-items: center;
@@ -105,5 +149,10 @@
 @media (max-width: 980px) {
   .header {
     flex-direction: column;
+  }
+
+  .optionHeader,
+  .optionRow {
+    grid-template-columns: 1fr;
   }
 }

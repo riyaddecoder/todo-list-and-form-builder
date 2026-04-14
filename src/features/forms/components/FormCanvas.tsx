@@ -26,7 +26,7 @@ export function FormCanvas({
       'application/form-field-type',
     ) as FormFieldType
 
-    if (type === 'text' || type === 'textarea') {
+    if (type === 'text' || type === 'textarea' || type === 'select') {
       onAddField(type)
     }
   }
@@ -64,10 +64,16 @@ export function FormCanvas({
               >
                 <span className={styles.fieldLabel}>{field.label}</span>
                 <span className={styles.fieldMeta}>
-                  {field.type === 'textarea' ? 'Text Area' : 'Text Field'}
+                  {field.type === 'textarea'
+                    ? 'Text Area'
+                    : field.type === 'select'
+                      ? 'Dropdown'
+                      : 'Text Field'}
                 </span>
                 <span className={styles.fieldPreview}>
-                  {field.placeholder || 'No placeholder yet'}
+                  {field.type === 'select'
+                    ? `${field.options.length} option${field.options.length === 1 ? '' : 's'}`
+                    : field.placeholder || 'No placeholder yet'}
                 </span>
               </button>
             )

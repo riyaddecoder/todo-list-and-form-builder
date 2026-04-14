@@ -15,6 +15,38 @@ export function FormFieldSettings({
   onRemove,
   onUpdate,
 }: FormFieldSettingsProps) {
+  function handleOptionChange(optionIndex: number, nextValue: string) {
+    if (!field) {
+      return
+    }
+
+    const nextOptions = field.options.map((option, index) =>
+      index === optionIndex ? nextValue : option,
+    )
+
+    onUpdate(field.id, { options: nextOptions })
+  }
+
+  function handleAddOption() {
+    if (!field) {
+      return
+    }
+
+    onUpdate(field.id, {
+      options: [...field.options, `Option ${field.options.length + 1}`],
+    })
+  }
+
+  function handleRemoveOption(optionIndex: number) {
+    if (!field) {
+      return
+    }
+
+    onUpdate(field.id, {
+      options: field.options.filter((_, index) => index !== optionIndex),
+    })
+  }
+
   if (!field) {
     return (
       <aside className={styles.panel}>
@@ -68,23 +100,42 @@ export function FormFieldSettings({
       </label>
 
       {field.type === 'select' ? (
-        <label className={styles.field}>
-          <span className={styles.label}>Dropdown options</span>
-          <textarea
-            className={styles.textarea}
-            value={field.options.join('\n')}
-            onChange={(event) =>
-              onUpdate(field.id, {
-                options: event.target.value
-                  .split('\n')
-                  .map((option) => option.trim())
-                  .filter(Boolean),
-              })
-            }
-            rows={6}
-            placeholder={'Option 1\nOption 2'}
-          />
-        </label>
+        <div className={styles.field}>
+          <div className={styles.optionHeader}>
+            <span className={styles.label}>Dropdown options</span>
+            <button
+              type="button"
+              className={styles.addOptionButton}
+              onClick={handleAddOption}
+            >
+              Add value
+            </button>
+          </div>
+
+          <div className={styles.optionList}>
+            {field.options.map((option, index) => (
+              <div key={`${field.id}-option-${index}`} className={styles.optionRow}>
+                <input
+                  className={styles.input}
+                  type="text"
+                  value={option}
+                  onChange={(event) =>
+                    handleOptionChange(index, event.target.value)
+                  }
+                  placeholder={`Option ${index + 1}`}
+                />
+                <button
+                  type="button"
+                  className={styles.removeOptionButton}
+                  onClick={() => handleRemoveOption(index)}
+                  disabled={field.options.length === 1}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       ) : null}
     </aside>
   )
