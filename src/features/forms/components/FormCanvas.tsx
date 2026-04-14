@@ -1,5 +1,8 @@
 import { useState, type DragEvent } from 'react'
 import { TrashIcon } from '../../../shared/ui/icons/TrashIcon.tsx'
+import { DropdownElement } from './elements/DropdownElement.tsx'
+import { TextAreaElement } from './elements/TextAreaElement.tsx'
+import { TextFieldElement } from './elements/TextFieldElement.tsx'
 import type { FormField, FormFieldType } from '../types.ts'
 import styles from './FormCanvas.module.css'
 
@@ -146,11 +149,31 @@ export function FormCanvas({
                           ? 'Dropdown'
                           : 'Text Field'}
                     </span>
-                    <span className={styles.fieldPreview}>
-                      {field.type === 'select'
-                        ? `${field.options.length} option${field.options.length === 1 ? '' : 's'}`
-                        : field.placeholder || 'No placeholder yet'}
-                    </span>
+                    <div className={styles.previewContainer}>
+                      {field.type === 'textarea' ? (
+                        <TextAreaElement
+                          value=""
+                          disabled
+                          placeholder={field.placeholder}
+                        />
+                      ) : null}
+
+                      {field.type === 'select' ? (
+                        <DropdownElement
+                          value=""
+                          disabled
+                          options={field.options}
+                        />
+                      ) : null}
+
+                      {field.type === 'text' ? (
+                        <TextFieldElement
+                          value=""
+                          disabled
+                          placeholder={field.placeholder}
+                        />
+                      ) : null}
+                    </div>
                   </button>
 
                   <button

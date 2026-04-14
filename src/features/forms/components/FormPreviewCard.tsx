@@ -1,5 +1,8 @@
 import type { SubmitEventHandler } from 'react'
 import type { FormField } from '../types.ts'
+import { DropdownElement } from './elements/DropdownElement.tsx'
+import { TextAreaElement } from './elements/TextAreaElement.tsx'
+import { TextFieldElement } from './elements/TextFieldElement.tsx'
 import styles from './FormPreviewCard.module.css'
 
 type FormPreviewCardProps = {
@@ -40,34 +43,23 @@ export function FormPreviewCard({
               <span className={styles.label}>{fieldLabel}</span>
 
               {field.type === 'textarea' ? (
-                <textarea
-                  className={styles.textarea}
+                <TextAreaElement
                   value={fieldValue}
                   onChange={(event) => onValueChange(field.id, event.target.value)}
-                  rows={5}
                   placeholder={field.placeholder}
                 />
               ) : null}
 
               {field.type === 'select' ? (
-                <select
-                  className={styles.select}
+                <DropdownElement
                   value={fieldValue}
                   onChange={(event) => onValueChange(field.id, event.target.value)}
-                >
-                  <option value="">Choose an option</option>
-                  {field.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
+                  options={field.options}
+                />
               ) : null}
 
               {field.type === 'text' ? (
-                <input
-                  className={styles.input}
-                  type="text"
+                <TextFieldElement
                   value={fieldValue}
                   onChange={(event) => onValueChange(field.id, event.target.value)}
                   placeholder={field.placeholder}

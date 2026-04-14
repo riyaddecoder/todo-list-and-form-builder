@@ -148,8 +148,19 @@
   color: #6b7b75;
 }
 
-.fieldPreview {
-  color: #50635b;
+.previewContainer {
+  margin-top: 0.35rem;
+  pointer-events: none;
+}
+
+.previewContainer :disabled {
+  min-height: 2.4rem;
+  border-style: dashed;
+  opacity: 0.7;
+}
+
+.previewContainer textarea:disabled {
+  min-height: 4rem;
 }
 
 .cardWrapper {
