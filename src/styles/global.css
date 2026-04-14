@@ -1,4 +1,4 @@
-:global(:root) {
+:root {
   font-family:
     'Plus Jakarta Sans',
     'Segoe UI',
@@ -13,25 +13,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-:global(*) {
+* {
   box-sizing: border-box;
 }
 
-:global(body) {
+body {
   margin: 0;
 }
 
-:global(button),
-:global(input),
-:global(textarea),
-:global(select) {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
-:global(a) {
+a {
   color: inherit;
 }
 
-:global(#root) {
+#root {
   min-height: 100vh;
 }
