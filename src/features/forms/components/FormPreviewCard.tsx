@@ -21,8 +21,7 @@ export function FormPreviewCard({
     <section className={styles.card}>
       <div className={styles.header}>
         <div>
-          <p className={styles.kicker}>Preview & Submit</p>
-          <h1 className={styles.title}>Fill the generated form</h1>
+          <h1 className={styles.title}>Fill up the form</h1>
         </div>
         {submitted ? (
           <p className={styles.successMessage}>
