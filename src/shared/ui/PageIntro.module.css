@@ -1,0 +1,37 @@
+.card {
+  width: min(100%, 960px);
+  margin: auto;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 242, 0.84)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow:
+    0 24px 60px rgba(25, 44, 38, 0.08),
+    inset 0 0 0 1px rgba(23, 48, 40, 0.08);
+}
+
+.kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8f5b2e;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  color: #14231d;
+}
+
+.description {
+  margin: 1rem 0 0;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4f6059;
+}

@@ -1,0 +1,37 @@
+:global(:root) {
+  font-family:
+    'Plus Jakarta Sans',
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #23332d;
+  background: #f4efe7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(body) {
+  margin: 0;
+}
+
+:global(button),
+:global(input),
+:global(textarea),
+:global(select) {
+  font: inherit;
+}
+
+:global(a) {
+  color: inherit;
+}
+
+:global(#root) {
+  min-height: 100vh;
+}
