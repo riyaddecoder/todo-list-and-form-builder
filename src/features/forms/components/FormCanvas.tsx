@@ -1,4 +1,5 @@
 import { useState, type DragEvent } from 'react'
+import { TrashIcon } from '../../../shared/ui/icons/TrashIcon.tsx'
 import type { FormField, FormFieldType } from '../types.ts'
 import styles from './FormCanvas.module.css'
 
@@ -7,6 +8,7 @@ type FormCanvasProps = {
   selectedFieldId: string | null
   onAddFieldAt: (type: FormFieldType, index: number) => void
   onSelectField: (fieldId: string) => void
+  onDeleteField: (fieldId: string) => void
 }
 
 export function FormCanvas({
@@ -14,6 +16,7 @@ export function FormCanvas({
   selectedFieldId,
   onAddFieldAt,
   onSelectField,
+  onDeleteField,
 }: FormCanvasProps) {
   const [isDraggingOverCanvas, setIsDraggingOverCanvas] = useState(false)
   const [dropIndex, setDropIndex] = useState<number | null>(null)
@@ -128,26 +131,37 @@ export function FormCanvas({
                   <span className={styles.dropZoneLine} />
                 </div>
 
-                <button
-                  data-field-card="true"
-                  type="button"
-                  className={isSelected ? styles.fieldCardActive : styles.fieldCard}
-                  onClick={() => onSelectField(field.id)}
-                >
-                  <span className={styles.fieldLabel}>{field.label}</span>
-                  <span className={styles.fieldMeta}>
-                    {field.type === 'textarea'
-                      ? 'Text Area'
-                      : field.type === 'select'
-                        ? 'Dropdown'
-                        : 'Text Field'}
-                  </span>
-                  <span className={styles.fieldPreview}>
-                    {field.type === 'select'
-                      ? `${field.options.length} option${field.options.length === 1 ? '' : 's'}`
-                      : field.placeholder || 'No placeholder yet'}
-                  </span>
-                </button>
+                <div className={styles.cardWrapper}>
+                  <button
+                    data-field-card="true"
+                    type="button"
+                    className={isSelected ? styles.fieldCardActive : styles.fieldCard}
+                    onClick={() => onSelectField(field.id)}
+                  >
+                    <span className={styles.fieldLabel}>{field.label}</span>
+                    <span className={styles.fieldMeta}>
+                      {field.type === 'textarea'
+                        ? 'Text Area'
+                        : field.type === 'select'
+                          ? 'Dropdown'
+                          : 'Text Field'}
+                    </span>
+                    <span className={styles.fieldPreview}>
+                      {field.type === 'select'
+                        ? `${field.options.length} option${field.options.length === 1 ? '' : 's'}`
+                        : field.placeholder || 'No placeholder yet'}
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    className={styles.deleteButton}
+                    onClick={() => onDeleteField(field.id)}
+                    aria-label="Delete field"
+                  >
+                    <TrashIcon />
+                  </button>
+                </div>
               </div>
             )
           })}

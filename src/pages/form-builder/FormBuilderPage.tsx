@@ -33,6 +33,7 @@ export function FormBuilderPage() {
           selectedFieldId={selectedFieldId}
           onAddFieldAt={addFieldAt}
           onSelectField={selectField}
+          onDeleteField={removeField}
         />
         <FormFieldSettings
           field={selectedField}
