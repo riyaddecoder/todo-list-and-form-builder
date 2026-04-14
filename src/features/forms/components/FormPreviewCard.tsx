@@ -1,6 +1,5 @@
 import type { SubmitEventHandler } from 'react'
 import type { FormField } from '../types.ts'
-import { getFieldName } from '../utils/getFieldName.ts'
 import styles from './FormPreviewCard.module.css'
 
 type FormPreviewCardProps = {
@@ -35,8 +34,7 @@ export function FormPreviewCard({
       <form className={styles.form} onSubmit={onSubmit}>
         {fields.map((field) => {
           const fieldLabel = field.label.trim() || 'Untitled field'
-          const fieldName = getFieldName(field.label, field.id)
-          const fieldValue = values[fieldName] ?? ''
+          const fieldValue = values[field.id] ?? ''
 
           return (
             <label key={field.id} className={styles.field}>
@@ -46,7 +44,7 @@ export function FormPreviewCard({
                 <textarea
                   className={styles.textarea}
                   value={fieldValue}
-                  onChange={(event) => onValueChange(fieldName, event.target.value)}
+                  onChange={(event) => onValueChange(field.id, event.target.value)}
                   rows={5}
                   placeholder={field.placeholder}
                 />
@@ -56,7 +54,7 @@ export function FormPreviewCard({
                 <select
                   className={styles.select}
                   value={fieldValue}
-                  onChange={(event) => onValueChange(fieldName, event.target.value)}
+                  onChange={(event) => onValueChange(field.id, event.target.value)}
                 >
                   <option value="">Choose an option</option>
                   {field.options.map((option) => (
@@ -72,7 +70,7 @@ export function FormPreviewCard({
                   className={styles.input}
                   type="text"
                   value={fieldValue}
-                  onChange={(event) => onValueChange(fieldName, event.target.value)}
+                  onChange={(event) => onValueChange(field.id, event.target.value)}
                   placeholder={field.placeholder}
                 />
               ) : null}

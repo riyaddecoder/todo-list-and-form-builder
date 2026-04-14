@@ -10,21 +10,25 @@ export function FormPreviewPage() {
   const [values, setValues] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
 
-  function handleValueChange(fieldName: string, value: string) {
+  function handleValueChange(fieldId: string, value: string) {
     setSubmitted(false)
     setValues((currentValues) => ({
       ...currentValues,
-      [fieldName]: value,
+      [fieldId]: value,
     }))
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
+    const usedKeys = new Map<string, number>()
     const payload = fields.reduce<Record<string, string>>((accumulator, field) => {
-      const key = getFieldName(field.label, field.id)
+      const baseKey = getFieldName(field.label, field.id)
+      const occurrence = usedKeys.get(baseKey) ?? 0
+      const key = occurrence === 0 ? baseKey : `${baseKey}-${occurrence + 1}`
 
-      accumulator[key] = values[key] ?? ''
+      usedKeys.set(baseKey, occurrence + 1)
+      accumulator[key] = values[field.id] ?? ''
       return accumulator
     }, {})
 
