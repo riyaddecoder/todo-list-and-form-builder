@@ -1,0 +1,113 @@
+.canvas {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  min-height: 36rem;
+  padding: 1.5rem;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(248, 252, 250, 0.78)),
+    linear-gradient(135deg, rgba(238, 245, 242, 0.72), rgba(255, 250, 242, 0.72));
+  box-shadow:
+    0 20px 45px rgba(29, 49, 43, 0.08),
+    inset 0 0 0 1px rgba(28, 53, 45, 0.08);
+}
+
+.canvasHeader {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8f5b2e;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #152720;
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  gap: 0.55rem;
+  min-height: 22rem;
+  border: 2px dashed rgba(45, 122, 104, 0.25);
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.82), transparent 60%),
+    rgba(255, 255, 255, 0.52);
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #173029;
+}
+
+.emptyText {
+  margin: 0;
+  max-width: 24rem;
+  color: #5d6c66;
+}
+
+.fieldStack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.fieldCard,
+.fieldCardActive {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: 1.15rem;
+  border: 0;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(28, 53, 45, 0.08);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.fieldCard:hover,
+.fieldCardActive {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 28px rgba(29, 49, 43, 0.08),
+    inset 0 0 0 1px rgba(45, 122, 104, 0.25);
+}
+
+.fieldCardActive {
+  background: linear-gradient(135deg, rgba(228, 244, 238, 0.95), rgba(255, 252, 247, 0.95));
+}
+
+.fieldLabel {
+  font-weight: 700;
+  color: #173029;
+}
+
+.fieldMeta {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7b75;
+}
+
+.fieldPreview {
+  color: #50635b;
+}

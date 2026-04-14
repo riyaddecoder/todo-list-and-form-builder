@@ -1,0 +1,72 @@
+.panel {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.35rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 252, 247, 0.86);
+  box-shadow:
+    0 20px 45px rgba(29, 49, 43, 0.08),
+    inset 0 0 0 1px rgba(28, 53, 45, 0.08);
+}
+
+.header {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8f5b2e;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #152720;
+}
+
+.description {
+  margin: 0;
+  color: #53665f;
+}
+
+.list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.paletteButton {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1rem;
+  border: 1px dashed rgba(33, 64, 54, 0.2);
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.82);
+  text-align: left;
+  cursor: grab;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.paletteButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(45, 122, 104, 0.45);
+  box-shadow: 0 12px 24px rgba(29, 49, 43, 0.08);
+}
+
+.buttonTitle {
+  font-weight: 700;
+  color: #173029;
+}
+
+.buttonDescription {
+  color: #5b6b65;
+}
