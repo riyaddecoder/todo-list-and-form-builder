@@ -1,0 +1,23 @@
+.card {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 252, 247, 0.82);
+  box-shadow:
+    0 20px 45px rgba(29, 49, 43, 0.08),
+    inset 0 0 0 1px rgba(28, 53, 45, 0.08);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #162821;
+}
+
+.message {
+  margin: 0.8rem 0 0;
+  color: #4d5f58;
+  max-width: 38rem;
+}

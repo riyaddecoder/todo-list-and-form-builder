@@ -1,0 +1,21 @@
+.completed,
+.pending {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6.75rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.completed {
+  color: #125a46;
+  background: rgba(18, 90, 70, 0.12);
+}
+
+.pending {
+  color: #9c5f1c;
+  background: rgba(156, 95, 28, 0.14);
+}
