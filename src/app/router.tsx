@@ -21,10 +21,10 @@ export const router = createBrowserRouter([
         path: 'form-builder',
         element: <FormBuilderPage />,
       },
-      {
-        path: 'form-preview',
-        element: <FormPreviewPage />,
-      },
     ],
+  },
+  {
+    path: '/form-preview',
+    element: <FormPreviewPage />,
   },
 ])

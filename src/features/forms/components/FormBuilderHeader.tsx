@@ -25,7 +25,7 @@ export function FormBuilderHeader({ onAddField }: FormBuilderHeaderProps) {
           >
             Add Field
           </button>
-          <Link to="/form-preview" className={styles.secondaryButton}>
+          <Link to="/form-preview" target='_blank' className={styles.secondaryButton}>
             Preview Form
           </Link>
         </div>
